@@ -114,8 +114,14 @@ class Quiz3 : AppCompatActivity() {
     }
 
     private fun registrarRespostaLocal(heroiIndices: List<Int>) {
-        for (index in heroiIndices) {
-            placar[index]++
+        for (id in heroiIndices) {
+            // Converte o ID (1-8) para o índice (0-7)
+            val index = id - 1
+
+            // Adiciona uma verificação de segurança
+            if (index >= 0 && index < placar.size) {
+                placar[index]++
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ class LogicaQuiz {
 
     private val bancoDePerguntas = listOf(
         Pergunta(
-            1,
+            0,
             "Que tipo de atração em parque de diversão você prefere?",
             opcoes = listOf(
                 Opcao("Montanha-russa", listOf(3, 8), R.drawable.hulk), // Iron Man (velocidade, adrenalina), Thor (poder, "show-off")
@@ -26,7 +26,7 @@ class LogicaQuiz {
         ),
 
         Pergunta(
-            2,
+            1,
             "Se você fosse um treinador, qual tipo de Pokémon seria seu ás?",
             opcoes = listOf(
                 Opcao("Psíquico (ex: Alakazam, Mewtwo).", listOf(6, 7), R.drawable.alakazam), // Jean Grey (telepata), Loki (mágico/ilusionista)
@@ -37,7 +37,7 @@ class LogicaQuiz {
         ),
 
         Pergunta(
-            3,
+            2,
             "Qual seu gênero de jogo favorito?",
             opcoes = listOf(
                 Opcao("RPG de fantasia com mundos épicos", listOf(4, 8), R.drawable.rpg), // Mulher Maravilha (mitologia), Thor (mitologia)
@@ -47,11 +47,11 @@ class LogicaQuiz {
             )
         ),
         Pergunta(
-            4,
+            3,
             "Que tipo de filme (que não seja de herói) você escolhe para ver?",
             opcoes = listOf(
                 Opcao("Ficção Científica complexa", listOf(3, 6), R.drawable.dune), // Iron Man (tecnologia, futuro), Jean Grey (poderes cósmicos)
-                Opcao("Um filme clássico inspirador", listOf(1, 4), R.drawable.sociedade), // Superman (esperança), Mulher Maravilha (compaixão)
+                Opcao("Um filme clássico inspirador", listOf(1, 4), R.drawable.seven), // Superman (esperança), Mulher Maravilha (compaixão)
                 Opcao("Suspense investigativo", listOf(2, 5), R.drawable.seven), // Batman (detetive), Homem Aranha (investigativo)
                 Opcao("Uma fantasia épica com magia", listOf(7, 8), R.drawable.lotr)  // Loki (magia), Thor (mitologia)
             )
@@ -77,7 +77,10 @@ class LogicaQuiz {
     }
 
     fun getResultadoFinal(pontuacaoHerois: IntArray): Heroi {
-        val idVencedor = pontuacaoHerois.maxByOrNull { pontuacaoHerois[it] } ?: 0
-        return herois[idVencedor]
+        // 1. Encontra o ÍNDICE (0-7) que tem a maior pontuação
+        val indiceVencedor = pontuacaoHerois.indices.maxByOrNull { pontuacaoHerois[it] } ?: 0
+
+        // 2. Retorna o herói naquela posição (índice)
+        return herois[indiceVencedor]
     }
 }

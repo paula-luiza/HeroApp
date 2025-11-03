@@ -20,7 +20,8 @@ class Resultados : AppCompatActivity() {
         setContentView(R.layout.activity_resultados)
 
         val placarFinal = intent.getIntArrayExtra("PLACAR_FINAL")
-        val nomeResultado = findViewById<TextView>(R.id.tvResultado)
+        val titulo = findViewById<TextView>(R.id.tvResultado)
+        val nomeResultado = findViewById<TextView>(R.id.tvResultado2)
         var imagemResultado = findViewById<ImageView>(R.id.ivImagem)
         val btShare = findViewById<FloatingActionButton>(R.id.btShare)
         val btHome = findViewById<Button>(R.id.btInicio)
@@ -32,7 +33,8 @@ class Resultados : AppCompatActivity() {
         } else {
 
             val heroiVencedor = logica.getResultadoFinal(placarFinal)
-            nomeResultado.text = nome + ", seu héroi é:" + heroiVencedor.nome
+            titulo.text = nome + ", seu héroi é:"
+            nomeResultado.text = heroiVencedor.nome
             imagemResultado.setImageResource(heroiVencedor.imagemHeroi)
 
             btShare.setOnClickListener {

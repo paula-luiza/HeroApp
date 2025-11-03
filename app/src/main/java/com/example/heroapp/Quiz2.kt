@@ -24,6 +24,7 @@ class Quiz2 : AppCompatActivity() {
     private lateinit var placar: IntArray
     private lateinit var pergunta: Pergunta
     private lateinit var btAvancar: Button
+    private lateinit var nomeRecebido: String
     private var selecaoAtual: List<Int>? = null
 
 
@@ -31,7 +32,7 @@ class Quiz2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz2)
 
-        val nomeRecebido = intent.getStringExtra("NOME") ?: ""
+        nomeRecebido = intent.getStringExtra("NOME") ?: ""
 
         tvPergunta = findViewById<TextView>(R.id.tvTitle)
         btOpcao1 = findViewById<Button>(R.id.btOpcao1)
@@ -116,8 +117,14 @@ class Quiz2 : AppCompatActivity() {
     }
 
     private fun registrarRespostaLocal(heroiIndices: List<Int>) {
-        for (index in heroiIndices) {
-            placar[index]++
+        for (id in heroiIndices) {
+            // Converte o ID (1-8) para o índice (0-7)
+            val index = id - 1
+
+            // Adiciona uma verificação de segurança
+            if (index >= 0 && index < placar.size) {
+                placar[index]++
+            }
         }
     }
 }
