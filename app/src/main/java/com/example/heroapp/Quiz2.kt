@@ -12,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import org.w3c.dom.Text
 import kotlin.math.log
 
-class Quiz1 : AppCompatActivity() {
+class Quiz2 : AppCompatActivity() {
 
     private val logica = LogicaQuiz()
 
@@ -23,24 +23,25 @@ class Quiz1 : AppCompatActivity() {
     private lateinit var btOpcao4: Button
     private lateinit var placar: IntArray
     private lateinit var pergunta: Pergunta
+    private lateinit var btAvancar: Button
     private var selecaoAtual: List<Int>? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quiz1)
+        setContentView(R.layout.activity_quiz2)
+
+        val nomeRecebido = intent.getStringExtra("NOME") ?: ""
 
         tvPergunta = findViewById<TextView>(R.id.tvTitle)
         btOpcao1 = findViewById<Button>(R.id.btOpcao1)
         btOpcao2 = findViewById<Button>(R.id.btOpcao2)
         btOpcao3 = findViewById<Button>(R.id.btOpcao3)
         btOpcao4 = findViewById<Button>(R.id.btOpcao4)
+        btAvancar = findViewById<Button>(R.id.btAvancar)
+        placar = intent.getIntArrayExtra("PLACAR_ATUAL") ?: logica.criarPlacarInicial()
+        pergunta = logica.getPergunta(1)
 
-        placar = logica.criarPlacarInicial()
-
-        val btAvancar = findViewById<Button>(R.id.btAvancar)
-        val nomeRecebido = intent.getStringExtra("NOME") ?: ""
-        pergunta = logica.getPergunta(0)
 
         tvPergunta.text = pergunta.textoDaPergunta
         btOpcao1.text = pergunta.opcoes[0].texto
@@ -83,12 +84,13 @@ class Quiz1 : AppCompatActivity() {
                 Toast.makeText(this, "Por favor, escolha uma opção", Toast.LENGTH_SHORT).show()
             } else {
                 registrarRespostaLocal(selecaoAtual!!)
-                val proximaPagina = Intent(this, Quiz2::class.java)
-                proximaPagina.putExtra("PLACAR_ATUAL", placar)
+                val proximaPagina = Intent(this, Resultados::class.java)
+                proximaPagina.putExtra("PLACAR_FINAL", placar)
                 startActivity(proximaPagina)
             }
         }
     }
+
     private fun registrarRespostaLocal(heroiIndices: List<Int>) {
         for (index in heroiIndices) {
             placar[index]++

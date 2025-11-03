@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Quiz1">
+    tools:context=".Quiz2">
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -63,13 +63,17 @@
         android:layout_height="wrap_content"
         android:drawableTop="@drawable/peterparkerspiderman"
         android:text="Minha Legenda"
-        app:cornerRadius="0dp" /> <Button
+        app:cornerRadius="0dp" />
+
+    <Button
         android:id="@+id/btOpcao2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:drawableTop="@drawable/peterparkerspiderman"
         android:text="Minha Legenda"
-        app:cornerRadius="0dp" /> <Button
+        app:cornerRadius="0dp" />
+
+    <Button
         android:id="@+id/btOpcao3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -89,7 +93,6 @@
         android:id="@+id/btVoltar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginBottom="32dp"
         android:text="Voltar"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -101,7 +104,6 @@
         android:id="@+id/btAvancar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:text="Avançar"
         app:layout_constraintBottom_toBottomOf="parent"

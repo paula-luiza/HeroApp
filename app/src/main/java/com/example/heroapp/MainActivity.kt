@@ -14,16 +14,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btStart = findViewById<Button>(R.id.btStart)
-        val etNome = findViewById<EditText>(R.id.etNome)
-        var nome:String
+        val btComecarQuiz = findViewById<Button>(R.id.btStart)
+        var etNome = findViewById<EditText>(R.id.etNome)
 
-        btStart.setOnClickListener {
-            nome = etNome.text.toString()
+        btComecarQuiz.setOnClickListener {
+            val comecarQuiz = Intent(this, Quiz1::class.java)
+            var nome = etNome.text.toString()
 
-            val intent = Intent(this, Quiz1::class.java)
-            intent.putExtra("NOME", nome)
-            startActivity(intent)
+            comecarQuiz.putExtra("NOME", nome)
+            startActivity(comecarQuiz)
         }
+
+
+
     }
+
 }
