@@ -9,10 +9,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import org.w3c.dom.Text
-import kotlin.math.log
 
-class Quiz2 : AppCompatActivity() {
+class Quiz4 : AppCompatActivity() {
 
     private val logica = LogicaQuiz()
 
@@ -29,7 +27,7 @@ class Quiz2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quiz2)
+        setContentView(R.layout.activity_quiz4)
 
         val nomeRecebido = intent.getStringExtra("NOME") ?: ""
 
@@ -40,7 +38,7 @@ class Quiz2 : AppCompatActivity() {
         btOpcao4 = findViewById<Button>(R.id.btOpcao4)
         btAvancar = findViewById<Button>(R.id.btAvancar)
         placar = intent.getIntArrayExtra("PLACAR_ATUAL") ?: logica.criarPlacarInicial()
-        pergunta = logica.getPergunta(1)
+        pergunta = logica.getPergunta(3)
 
 
         tvPergunta.text = pergunta.textoDaPergunta
@@ -107,8 +105,8 @@ class Quiz2 : AppCompatActivity() {
                 Toast.makeText(this, "Por favor, escolha uma opção", Toast.LENGTH_SHORT).show()
             } else {
                 registrarRespostaLocal(selecaoAtual!!)
-                val proximaPagina = Intent(this, Quiz3::class.java)
-                proximaPagina.putExtra("PLACAR_ATUAL", placar)
+                val proximaPagina = Intent(this, Resultados::class.java)
+                proximaPagina.putExtra("PLACAR_FINAL", placar)
                 proximaPagina.putExtra("NOME", nomeRecebido)
                 startActivity(proximaPagina)
             }

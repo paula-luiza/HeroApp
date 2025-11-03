@@ -7,28 +7,53 @@ class LogicaQuiz {
         Heroi(2, "Batman", R.drawable.batman),
         Heroi(3, "Iron Man", R.drawable.ironman),
         Heroi(4, "Mulher Maravilha", R.drawable.wonderwoman),
-        Heroi(5, "Homem Aranha", R.drawable.spidey)
+        Heroi(5, "Homem Aranha", R.drawable.spidey),
+        Heroi(6, "Jean Grey", R.drawable.jean),
+        Heroi(7, "Loki", R.drawable.loki),
+        Heroi(8, "Thor", R.drawable.thor)
     )
 
     private val bancoDePerguntas = listOf(
         Pergunta(
             1,
-            "Qual sua comida favorita?",
+            "Que tipo de atração em parque de diversão você prefere?",
             opcoes = listOf(
-                Opcao("Churrasco", listOf(1)),
-                Opcao("Massa", listOf(2)),
-                Opcao("Salada", listOf(3)),
-                Opcao("Japonês", listOf(4))
+                Opcao("Montanha-russa", listOf(3, 8), R.drawable.hulk), // Iron Man (velocidade, adrenalina), Thor (poder, "show-off")
+                Opcao("Casa mal-assombrada.", listOf(2, 7), R.drawable.haunted), // Batman (sombrio), Loki (trapaça, ilusão)
+                Opcao("Simulador de voo", listOf(1, 4), R.drawable.soarin), // Superman (voo), Mulher Maravilha (voo)
+                Opcao("Sling Shot", listOf(5, 6), R.drawable.slingshot)  // Homem Aranha (agilidade), Jean Grey (poder telecinético)
+            )
+        ),
+
+        Pergunta(
+            2,
+            "Se você fosse um treinador, qual tipo de Pokémon seria seu ás?",
+            opcoes = listOf(
+                Opcao("Psíquico (ex: Alakazam, Mewtwo).", listOf(6, 7), R.drawable.alakazam), // Jean Grey (telepata), Loki (mágico/ilusionista)
+                Opcao("Elétrico (ex: Zapdos, Pikachu).", listOf(8, 5), R.drawable.eletrico), // Thor (raios), Homem Aranha (energia/agilidade)
+                Opcao("Aço (ex: Metagross, Scizor).", listOf(3, 2), R.drawable.aco), // Iron Man (armadura), Batman (armadura/ferramentas)
+                Opcao("Lutador (ex: Machamp, Lucario).", listOf(1, 4), R.drawable.lutador)  // Superman (força), Mulher Maravilha (guerreira)
+            )
+        ),
+
+        Pergunta(
+            3,
+            "Qual seu gênero de jogo favorito?",
+            opcoes = listOf(
+                Opcao("RPG de fantasia com mundos épicos", listOf(4, 8), R.drawable.rpg), // Mulher Maravilha (mitologia), Thor (mitologia)
+                Opcao("Jogos de estratégia complexos", listOf(2, 3), R.drawable.civ6), // Batman (tático), Iron Man (gênio estrategista)
+                Opcao("Jogos de plataforma e agilidade", listOf(5, 7), R.drawable.mario), // Homem Aranha (agilidade), Loki (ágil, trapaceiro)
+                Opcao("Jogos 'sandbox' onde você pode criar tudo", listOf(1, 6),R.drawable.minecraft)  // Superman (poder total), Jean Grey (poder de criar/mudar)
             )
         ),
         Pergunta(
-            2,
-            "Qual sua comida favorita?",
+            4,
+            "Que tipo de filme (que não seja de herói) você escolhe para ver?",
             opcoes = listOf(
-                Opcao("Churrasco", listOf(3)),
-                Opcao("Massa", listOf(5)),
-                Opcao("Salada", listOf(2)),
-                Opcao("Japonês", listOf(4))
+                Opcao("Ficção Científica complexa", listOf(3, 6), R.drawable.dune), // Iron Man (tecnologia, futuro), Jean Grey (poderes cósmicos)
+                Opcao("Um filme clássico inspirador", listOf(1, 4), R.drawable.sociedade), // Superman (esperança), Mulher Maravilha (compaixão)
+                Opcao("Suspense investigativo", listOf(2, 5), R.drawable.seven), // Batman (detetive), Homem Aranha (investigativo)
+                Opcao("Uma fantasia épica com magia", listOf(7, 8), R.drawable.lotr)  // Loki (magia), Thor (mitologia)
             )
         )
     )

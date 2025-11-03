@@ -47,7 +47,30 @@ class Quiz1 : AppCompatActivity() {
         btOpcao2.text = pergunta.opcoes[1].texto
         btOpcao3.text = pergunta.opcoes[2].texto
         btOpcao4.text = pergunta.opcoes[3].texto
-
+        btOpcao1.setCompoundDrawablesWithIntrinsicBounds(
+            0, // left
+            pergunta.opcoes[0].imagem, // top
+            0, // right
+            0  // bottom
+        )
+        btOpcao2.setCompoundDrawablesWithIntrinsicBounds(
+            0, // left
+            pergunta.opcoes[1].imagem, // top
+            0, // right
+            0  // bottom
+        )
+        btOpcao3.setCompoundDrawablesWithIntrinsicBounds(
+            0, // left
+            pergunta.opcoes[2].imagem, // top
+            0, // right
+            0  // bottom
+        )
+        btOpcao4.setCompoundDrawablesWithIntrinsicBounds(
+            0, // left
+            pergunta.opcoes[3].imagem, // top
+            0, // right
+            0  // bottom
+        )
 
         btOpcao1.setOnClickListener {
             selecaoAtual = pergunta.opcoes[0].heroiIds
@@ -85,6 +108,7 @@ class Quiz1 : AppCompatActivity() {
                 registrarRespostaLocal(selecaoAtual!!)
                 val proximaPagina = Intent(this, Quiz2::class.java)
                 proximaPagina.putExtra("PLACAR_ATUAL", placar)
+                proximaPagina.putExtra("NOME", nomeRecebido)
                 startActivity(proximaPagina)
             }
         }

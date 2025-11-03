@@ -13,6 +13,12 @@
         android:theme="@style/Theme.HeroApp"
         tools:targetApi="31">
         <activity
+            android:name=".Quiz4"
+            android:exported="false" />
+        <activity
+            android:name=".Quiz3"
+            android:exported="false" />
+        <activity
             android:name=".Resultados"
             android:exported="false" />
         <activity

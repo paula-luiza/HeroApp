@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Quiz1">
+    tools:context=".Quiz3">
 
     <androidx.constraintlayout.helper.widget.Flow
         android:id="@+id/flow_grid"
@@ -23,8 +23,7 @@
         app:flow_maxElementsWrap="2"
         app:flow_verticalGap="32dp"
         app:flow_wrapMode="chain"
-        app:layout_constraintBottom_toTopOf="@+id/bottomButton1"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btVoltar"        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
@@ -40,7 +39,7 @@
         android:layout_marginEnd="16dp"
         android:indeterminate="false"
         android:max="100"
-        android:progress="25"
+        android:progress="75"
         android:progressTint="#FB6F92"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

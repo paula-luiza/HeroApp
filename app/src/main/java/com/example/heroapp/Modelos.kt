@@ -8,7 +8,8 @@ data class Pergunta(
 
 data class Opcao(
     val texto: String,
-    val heroiIds: List<Int>
+    val heroiIds: List<Int>,
+    val imagem: Int
 )
 
 data class Heroi(
